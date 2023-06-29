@@ -50,4 +50,16 @@ body {
     background-color: blue;
     width: 600px;
     height: 600px;
+    box-shadow: 0 0 6px #000000;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: var(--lighter-sand);
+    margin-bottom: 20px;
+    font-size: 20px;
 }

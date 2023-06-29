@@ -1,0 +1,26 @@
+:root {
+    --background-color: #656b75;
+    --title-color: #e1cab3;
+}
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: 'Agdasima', sans-serif;
+}
+
+.header-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.header {
+    color: var(--title-color);
+    font-size: 80px;
+}

@@ -27,3 +27,26 @@ body {
     font-size: 80px;
 }
 
+.main {
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--blue-gray);
+
+    
+}
+
+.sidebar {
+    width: 300px;
+    height: 400px;
+    background-color: red;
+}
+
+.grid-container {
+    background-color: blue;
+    min-width: 600px;
+    height: 600px;
+}

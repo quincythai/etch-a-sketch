@@ -12,9 +12,17 @@
     box-sizing: border-box;
 }
 
+/* Remove scrollbar */
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     background-color: var(--dark-gray);
     font-family: 'Agdasima', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 .header-container {

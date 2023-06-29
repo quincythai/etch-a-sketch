@@ -28,6 +28,7 @@ body {
 }
 
 .main {
+    margin: 0 200px;
 }
 
 .container {
@@ -35,8 +36,8 @@ body {
     justify-content: space-around;
     align-items: center;
     background-color: var(--blue-gray);
-
-    
+    padding: 40px 0;
+    border-radius: 20px;
 }
 
 .sidebar {
@@ -47,6 +48,6 @@ body {
 
 .grid-container {
     background-color: blue;
-    min-width: 600px;
+    width: 600px;
     height: 600px;
 }

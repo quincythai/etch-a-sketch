@@ -1,6 +1,8 @@
 :root {
-    --background-color: #656b75;
-    --title-color: #e1cab3;
+    --dark-gray: #656b75;
+    --blue-gray: #848c94;
+    --sand: #cfb495;
+    --lighter-sand: #e1cab3;
 }
 
 /* CSS Reset */
@@ -11,7 +13,7 @@
 }
 
 body {
-    background-color: var(--background-color);
+    background-color: var(--dark-gray);
     font-family: 'Agdasima', sans-serif;
 }
 
@@ -21,6 +23,7 @@ body {
 }
 
 .header {
-    color: var(--title-color);
+    color: var(--lighter-sand);
     font-size: 80px;
 }
+

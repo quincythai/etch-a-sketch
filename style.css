@@ -1,8 +1,6 @@
 :root {
     --dark-gray: #656b75;
     --blue-gray: #848c94;
-    --sand: #cfb495;
-    --lighter-sand: #e1cab3;
 }
 
 /* CSS Reset */
@@ -18,6 +16,7 @@ html, body {
     overflow: hidden;
 }
 
+/* Enable vertical layout */
 body {
     background-color: var(--dark-gray);
     font-family: 'Agdasima', sans-serif;
@@ -31,30 +30,39 @@ body {
 }
 
 .header {
-    color: var(--lighter-sand);
+    color: white;
     font-size: 80px;
+}
+
+/* Make body stretch to fill vertical space, vertically align main */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
 }
 
 .main {
     display: flex;
-    flex-direction: column;
-    flex: 1;
-    margin: 0 200px;
 }
 
-.container {
+.container { 
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 1000px; /* Fixed width */
     background-color: var(--blue-gray);
-    padding: 40px 0;
+    padding: 40px 40px;
     border-radius: 20px;
+    margin: 40px;
+    gap: 40px;
 }
 
 .sidebar {
     width: 300px;
     height: 400px;
     background-color: red;
+    flex-shrink: 0;
 }
 
 .grid-container {
@@ -65,14 +73,11 @@ body {
 }
 
 .footer {
-    position: relative;
+    position: relative; /* relative to the document flow  */
     left: 0;
     bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--lighter-sand);
-    height: 60px;
+    text-align: center;
+    color: white;
+    height: 40px;
     font-size: 20px;
 }

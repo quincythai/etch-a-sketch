@@ -36,6 +36,9 @@ body {
 }
 
 .main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     margin: 0 200px;
 }
 
@@ -62,12 +65,14 @@ body {
 }
 
 .footer {
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: var(--lighter-sand);
-    margin-bottom: 20px;
+    height: 60px;
     font-size: 20px;
 }

@@ -63,10 +63,11 @@ body {
 }
 
 .grid-container {
-    background-color: blue;
     width: 600px;
     height: 600px;
     box-shadow: 0 0 6px #000000;
+
+    display: grid;
 }
 
 .footer {
@@ -77,4 +78,14 @@ body {
     color: white;
     height: 40px;
     font-size: 20px;
+}
+
+.grid-row {
+    display: flex;
+}
+
+.box {
+    background-color: white;
+    border: 1px solid #000000;
+    flex-grow: 1;
 }

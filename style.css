@@ -48,7 +48,7 @@ body {
 .sidebar {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 200px;
     height: 400px;
     flex-shrink: 0;

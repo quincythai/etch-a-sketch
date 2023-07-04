@@ -1,6 +1,6 @@
 const grid = document.getElementById('grid');
 const colorPicker = document.getElementById('color-picker');
-let color;
+let color = "black";
 
 // Require mousedown and mousehover to draw
 // https://stackoverflow.com/questions/71803395/event-listener-that-fires-only-when-mousedown-mouseover-are-true
@@ -22,7 +22,7 @@ createGrid(16);
 function changeBoxColor(e) {
     /* Event object itself doesn't have backgroundColor property 
     So we need e.target.style... instead of just e.style...*/
-    e.target.style.backgroundColor = "black";
+    e.target.style.backgroundColor = color;
 }
 
 const boxes = document.querySelectorAll('.box');
@@ -34,3 +34,9 @@ function clearBoard() {
         box.style.backgroundColor = "white";
     });
 };
+
+let colorWheel = document.getElementById('color-picker');
+colorWheel.addEventListener("input", () => {
+    color = colorWheel.value;
+});
+

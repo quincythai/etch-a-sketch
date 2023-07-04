@@ -4,7 +4,6 @@ let color;
 
 // Require mousedown and mousehover to draw
 // https://stackoverflow.com/questions/71803395/event-listener-that-fires-only-when-mousedown-mouseover-are-true
-document.onmousedown
 
 function createGrid(size) {
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`; // 1fr - 1 fraction of the row's size
@@ -25,3 +24,13 @@ function changeBoxColor(e) {
     So we need e.target.style... instead of just e.style...*/
     e.target.style.backgroundColor = "black";
 }
+
+const boxes = document.querySelectorAll('.box');
+const clearButton = document.getElementById('clear-button');
+clearButton.addEventListener('click', clearBoard);
+
+function clearBoard() {
+    boxes.forEach(box => {
+        box.style.backgroundColor = "white";
+    });
+};

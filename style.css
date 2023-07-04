@@ -3,13 +3,6 @@
     --blue-gray: #848c94;
 }
 
-/* CSS Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 /* Remove scrollbar */
 html, body {
     height: 100%;
@@ -29,6 +22,7 @@ body {
     color: white;
     font-size: 80px;
     text-align: center;
+    margin-top: 40px;
 }
 
 /* Make body stretch to fill vertical space, vertically align main */
@@ -62,11 +56,11 @@ body {
     flex-shrink: 0;
 }
 
-.grid-container {
+.grid {
     width: 600px;
     height: 600px;
-    box-shadow: 0 0 6px #000000;
-
+    box-shadow: 0 0 3px #000000;
+    border: 1px solid #000000;
     display: grid;
 }
 

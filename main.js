@@ -10,10 +10,20 @@ function createGrid(numRows, numCols) {
         for (let j = 0; j < numCols; j++) {
             let box = document.createElement('div');
             box.className = "box";
-            box.innerHTML = j;
             row.appendChild(box);
         }
     }
 }
 
 createGrid(16, 16);
+
+const boxes = document.querySelectorAll('.box');
+
+boxes.forEach(box => {
+    color = "Black";
+    box.addEventListener('mouseover', console.log("box"));
+});
+
+function changeBoxColor(color) {
+    this.style.backgroundColor = color;
+}

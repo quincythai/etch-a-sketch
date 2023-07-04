@@ -54,18 +54,37 @@ body {
     flex-shrink: 0;
 }
 
-input[type=color] {
-    display: none;
+button {
+    cursor: pointer;
 }
 
-span {
+/* Settings for the color wheel */
+input[type=color] {
+    align-self: center;
     width: 100px;
     height: 100px;
-    border-radius: 50%;
-    display: inline-block;
-    align-self: center;
-    background-color: red;
+    margin-bottom: 20px;
+    background-color: var(--blue-gray);
+    border: none;
+    cursor: pointer;
 }
+
+input[type=color]::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+button:hover,
+input[type=color]:hover {
+    transform: scale(1.04);
+}
+
+button:active,
+input[type=color]:active {
+    transform: scale(1);
+}
+
 
 .grid {
     display: grid; /* Create grid container enables its formatting */

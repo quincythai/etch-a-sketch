@@ -33,10 +33,6 @@ body {
     flex: 1;
 }
 
-.main {
-    display: flex;
-}
-
 .container { 
     display: flex;
     justify-content: space-around;
@@ -59,11 +55,12 @@ body {
 }
 
 .grid {
+    display: grid; /* Create grid container enables its formatting */
     width: 600px;
     height: 600px;
-    box-shadow: 0 0 3px #000000;
-    border: 1px solid #000000;
-    display: grid;
+    /* box-shadow: 0 0 3px #000000; */
+    border: 1px solid black;
+    flex-shrink: 0;
 }
 
 .footer {
@@ -84,4 +81,8 @@ body {
     background-color: white;
     border: 1px solid #000000;
     flex-grow: 1;
+}
+
+.btn {
+    font-weight: bold;
 }

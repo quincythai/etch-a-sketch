@@ -26,6 +26,13 @@ function changeBoxColor(e) {
     e.target.style.backgroundColor = "black";
 }
 
-function pickColor() {
+// Create rounded color picker
+// https://stackoverflow.com/questions/48832432/rounded-input-type-color
+$("#colour").change(function(event) {
+    console.log($(this).val());
+    $("#color_front").css('background-color',$(this).val());
+});
 
-}
+$("#color_front").click(function(event) {
+    $("#colour").click();
+});

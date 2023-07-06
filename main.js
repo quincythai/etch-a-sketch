@@ -140,3 +140,14 @@ function changeGridSize(size) {
 
     clearBoard();
 }
+
+// Make only one button active at a time
+// https://stackoverflow.com/questions/71346490/how-do-i-make-only-one-button-can-be-selected-at-time
+document.querySelectorAll(".c").forEach((button) => {
+    button.addEventListener("click", (event) => {
+        if (event.target.dataset) {
+            document.querySelectorAll(".c").forEach(e => e.classList.remove('active'));
+            button.classList.add('active');
+        }
+    });
+});

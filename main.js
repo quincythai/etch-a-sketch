@@ -118,6 +118,9 @@ function changeGridSize(size) {
     for (let i = 0; i < size * size; i++) {
         const box = document.createElement('div');
         box.classList.add('box'); // add box styling
+        if (!t) {
+            box.style.border = "none";
+        }
         box.addEventListener("mousedown", function(e) {
             e.preventDefault(); // prevent the red circle icon when you click on other elements
             isMouseDown = true;

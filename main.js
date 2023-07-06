@@ -46,6 +46,7 @@ clearButton.addEventListener('click', clearBoard);
 
 // Makes all boxes white
 function clearBoard() {
+    boxes = document.querySelectorAll(".box");
     boxes.forEach(box => {
         box.style.backgroundColor = "white";
     });

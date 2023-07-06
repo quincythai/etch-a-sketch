@@ -1,9 +1,9 @@
 const grid = document.getElementById('grid');
 const colorPicker = document.getElementById('color-picker');
 let color = "black";
-let buttonAlreadyActive = true;
 let isMouseDown = false;
 let gridSize = 16;
+let activeButton = "color-button";
 
 
 // Drawing function - only while mouse is held and moving
@@ -68,7 +68,7 @@ buttons.forEach(button => {
 });
 
 // Make color mode active on startup
-const colorButton = document.querySelector(".color-button");
+const colorButton = document.getElementById("color-button");
 document.addEventListener("DOMContentLoaded", () => {
     colorButton.classList.add("active");
     gridButton.classList.add("active");
@@ -148,6 +148,9 @@ document.querySelectorAll(".c").forEach((button) => {
         if (event.target.dataset) {
             document.querySelectorAll(".c").forEach(e => e.classList.remove('active'));
             button.classList.add('active');
+            activeButton = button.id;
+            console.log(activeButton);
         }
     });
 });
+

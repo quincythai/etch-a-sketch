@@ -19,14 +19,15 @@
         <div class="container">
             <div class="sidebar">
                 <input id="color-picker" type="color" value ="#333333">
-                <button type="button" class="btn btn-light color-button">Color Mode</button>
-                <button type="button" class="btn btn-light">Rainbow Mode</button>
-                <button type="button" class="btn btn-light">Eraser</button>
+                <button type="button" class="t btn btn-light color-button">Color Mode</button>
+                <button type="button" class="t btn btn-light">Rainbow Mode</button>
+                <button type="button" class="t btn btn-light" id ="eraser-button">Eraser</button>
                 <button type="button" class="btn btn-light" id="clear-button">Clear</button>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" value="16" class="slider" id="myRange">
+                    <p class="grid-size" id="grid-text">16x16</p>
+                    <input type="range" min="1" max="100" value="16" class="slider" id="slider">
                 </div>
-                <button type="button" class="btn btn-light" id="grid-button">Toggle Grid Lines</button>
+                <button type="button" class="t btn btn-light" id="grid-button">Toggle Grid Lines</button>
             </div>
             <div class="grid" id="grid"></div>
         </div>

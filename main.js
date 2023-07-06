@@ -17,7 +17,7 @@ function createGrid(size) {
         const box = document.createElement('div');
         box.classList.add('box'); // add box styling
         box.addEventListener("mousedown", function(e) {
-            e.preventDefault();
+            e.preventDefault(); // prevent the red circle icon when you click on other elements
             isMouseDown = true;
             changeBoxColor(e);
         });
@@ -59,7 +59,7 @@ colorWheel.addEventListener("input", () => {
 
 // Toggling invert color on active button
 // https://www.w3schools.com/howto/howto_js_toggle_class.asp
-const buttons = document.querySelectorAll(".btn");
+const buttons = document.querySelectorAll(".t");
 buttons.forEach(button => {
   button.addEventListener("click", () => {
     button.classList.toggle("active");
@@ -90,3 +90,14 @@ gridButton.addEventListener("click", () => {
         t = true;
     }
 })
+
+// https://stackoverflow.com/questions/29103818/how-can-i-retrieve-and-display-slider-range-value
+const slider = document.getElementById('slider');
+slider.oninput = function() {
+    changeGridSize();
+}
+function changeGridSize() {
+    let size = slider.value;
+    let text = document.getElementById('grid-text');
+    text.innerHTML = `${size}x${size}`;
+}

@@ -38,7 +38,25 @@ createGrid(16);
 function changeBoxColor(e) {
     /* Event object itself doesn't have backgroundColor property 
     So we need e.target.style... instead of just e.style...*/
-    e.target.style.backgroundColor = color;
+    if (activeButton === "color-button") {
+        e.target.style.backgroundColor = color;
+    }
+    if (activeButton === "rainbow-button") {
+        e.target.style.backgroundColor = getRandomColor();
+    }
+    if (activeButton === "eraser-button") {
+        e.target.style.backgroundColor = "white";
+    }
+}
+
+function getRandomColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+
 }
 
 const clearButton = document.getElementById('clear-button');
@@ -154,3 +172,6 @@ document.querySelectorAll(".c").forEach((button) => {
     });
 });
 
+if (activeButton === "rainbow-mode") {
+    
+}

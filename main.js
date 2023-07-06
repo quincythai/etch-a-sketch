@@ -74,10 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const gridButton = document.getElementById('grid-button');
-const boxes = document.querySelectorAll('.box');
+let boxes = document.querySelectorAll('.box');
 
 let t = true;
 gridButton.addEventListener("click", () => {
+    boxes = document.querySelectorAll('.box');
     if (t) {
         boxes.forEach(box => {
             box.style.border = "none";
@@ -93,11 +94,41 @@ gridButton.addEventListener("click", () => {
 
 // https://stackoverflow.com/questions/29103818/how-can-i-retrieve-and-display-slider-range-value
 const slider = document.getElementById('slider');
-slider.oninput = function() {
-    changeGridSize();
-}
-function changeGridSize() {
+slider.addEventListener('input', function() {
+    changeGridSizeText();
+    changeGridSize(slider.value);
+});
+
+function changeGridSizeText() {
     let size = slider.value;
     let text = document.getElementById('grid-text');
     text.innerHTML = `${size}x${size}`;
+}
+
+function changeGridSize(size) {
+    grid.innerHTML = "";
+
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`; // 1fr - 1 fraction of the row's size
+    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+
+    for (let i = 0; i < size * size; i++) {
+        const box = document.createElement('div');
+        box.classList.add('box'); // add box styling
+        box.addEventListener("mousedown", function(e) {
+            e.preventDefault(); // prevent the red circle icon when you click on other elements
+            isMouseDown = true;
+            changeBoxColor(e);
+        });
+        box.addEventListener("mouseup", function() {
+            isMouseDown = false;
+        });
+        box.addEventListener("mousemove", function(e) {
+            if (isMouseDown) {
+                changeBoxColor(e);
+            }
+        });
+        grid.appendChild(box);
+    }
+
+    clearBoard();
 }

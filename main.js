@@ -73,8 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
     gridButton.classList.add("active");
 });
 
+// Toggle grid lines
 const gridButton = document.getElementById('grid-button');
 let boxes = document.querySelectorAll('.box');
+
 
 let t = true;
 gridButton.addEventListener("click", () => {
@@ -83,11 +85,13 @@ gridButton.addEventListener("click", () => {
         boxes.forEach(box => {
             box.style.border = "none";
         })
+        grid.style.border = "none";
         t = false;   
     } else {
         boxes.forEach(box => {
             box.style.border = "1px solid #000000";
         })
+        grid.style.border = "1px solid black";
         t = true;
     }
 })

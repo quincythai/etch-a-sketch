@@ -92,7 +92,7 @@ input[type=color]:active {
     width: 600px;
     height: 600px;
     /* box-shadow: 0 0 2px #000000; */
-    /* border: 1px solid black; */
+    border: 1px solid black;
     flex-shrink: 0;
 }
 

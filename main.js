@@ -1,9 +1,13 @@
 const grid = document.getElementById('grid');
 const colorPicker = document.getElementById('color-picker');
 let color = "black";
+let buttonAlreadyActive = true;
+let isMouseDown = false;
+let gridSize = 16;
 
-// Require mousedown and mousehover to draw
-// https://stackoverflow.com/questions/71803395/event-listener-that-fires-only-when-mousedown-mouseover-are-true
+
+// Drawing function - only while mouse is held and moving
+// https://stackoverflow.com/questions/48593312/javascript-event-when-mouseover-and-mousedown
 
 function createGrid(size) {
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`; // 1fr - 1 fraction of the row's size
@@ -12,7 +16,19 @@ function createGrid(size) {
     for (let i = 0; i < size * size; i++) {
         const box = document.createElement('div');
         box.classList.add('box'); // add box styling
-        box.addEventListener('mouseover', changeBoxColor); // add changeColor on hover
+        box.addEventListener("mousedown", function(e) {
+            e.preventDefault();
+            isMouseDown = true;
+            changeBoxColor(e);
+        });
+        box.addEventListener("mouseup", function() {
+            isMouseDown = false;
+        });
+        box.addEventListener("mousemove", function(e) {
+            if (isMouseDown) {
+                changeBoxColor(e);
+            }
+        });
         grid.appendChild(box);
     }
 }
@@ -25,18 +41,52 @@ function changeBoxColor(e) {
     e.target.style.backgroundColor = color;
 }
 
-const boxes = document.querySelectorAll('.box');
 const clearButton = document.getElementById('clear-button');
 clearButton.addEventListener('click', clearBoard);
 
+// Makes all boxes white
 function clearBoard() {
     boxes.forEach(box => {
         box.style.backgroundColor = "white";
     });
 };
 
+// Change brush color based on color picked
 let colorWheel = document.getElementById('color-picker');
 colorWheel.addEventListener("input", () => {
     color = colorWheel.value;
 });
 
+// Toggling invert color on active button
+// https://www.w3schools.com/howto/howto_js_toggle_class.asp
+const buttons = document.querySelectorAll(".btn");
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    button.classList.toggle("active");
+  });
+});
+
+// Make color mode active on startup
+const colorButton = document.querySelector(".color-button");
+document.addEventListener("DOMContentLoaded", () => {
+    colorButton.classList.add("active");
+    gridButton.classList.add("active");
+});
+
+const gridButton = document.getElementById('grid-button');
+const boxes = document.querySelectorAll('.box');
+
+let t = true;
+gridButton.addEventListener("click", () => {
+    if (t) {
+        boxes.forEach(box => {
+            box.style.border = "none";
+        })
+        t = false;   
+    } else {
+        boxes.forEach(box => {
+            box.style.border = "1px solid #000000";
+        })
+        t = true;
+    }
+})

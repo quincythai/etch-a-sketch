@@ -171,7 +171,3 @@ document.querySelectorAll(".c").forEach((button) => {
         }
     });
 });
-
-if (activeButton === "rainbow-mode") {
-    
-}

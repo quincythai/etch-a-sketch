@@ -16,7 +16,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
 }
 
 /* "Etch-a-Sketch" title */
@@ -25,21 +24,17 @@ body {
     font-size: 80px;
     text-align: center;
     margin-top: 10px;
+    margin-bottom: 40px;
 }
 
 /* Make body stretch to fill vertical space, vertically align main */
 .main {
-    display: flex;
-    flex-direction: column;
     flex: 1;
 }
 
 .container {
     display: flex;
-    align-items: center;
-    max-width: 1110px;
     background-color: var(--blue-gray);
-    margin: 40px 0;
     padding: 80px;
     gap: 80px;
     border-radius: 40px;

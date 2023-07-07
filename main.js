@@ -16,19 +16,22 @@ let toggled;
 clearButton.addEventListener('click', clearBoard);
 colorWheel.addEventListener("input", changeColorWheelColor);
 
+// https://stackoverflow.com/questions/29103818/how-can-i-retrieve-and-display-slider-range-value
+slider.addEventListener('input', changeSlider);
 
 // Drawing function - only while mouse is held and moving
 // https://stackoverflow.com/questions/48593312/javascript-event-when-mouseover-and-mousedown
 
 function createGrid(size) {
-    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`; // 1fr - 1 fraction of the row's size
+    //1fr - 1 fraction of grid size;
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 
     for (let i = 0; i < size * size; i++) {
         const box = document.createElement('div');
         box.classList.add('box'); // add box styling
         box.addEventListener("mousedown", function (e) {
-            e.preventDefault(); // prevent the red circle icon when you click on other elements
+            e.preventDefault(); // prevent red circle icon when clicking other elements
             isMouseDown = true;
             changeBoxColor(e);
         });
@@ -94,6 +97,11 @@ function enableButtonActiveOnClick() {
     });
 }
 
+function changeSlider() {
+    changeGridSizeText();
+    changeGridSize(slider.value);
+}
+
 // Toggle grid lines
 function toggleGridLines() {
     gridButton.addEventListener("click", () => {
@@ -114,12 +122,6 @@ function toggleGridLines() {
     })
 }
 
-// https://stackoverflow.com/questions/29103818/how-can-i-retrieve-and-display-slider-range-value
-slider.addEventListener('input', function () {
-    changeGridSizeText();
-    changeGridSize(slider.value);
-});
-
 function changeGridSizeText() {
     let size = slider.value;
     let text = document.getElementById('grid-text');
@@ -127,7 +129,7 @@ function changeGridSizeText() {
 }
 
 function changeGridSize(size) {
-    grid.innerHTML = "";
+    grid.innerHTML = ""; //reset
     // 1fr - 1 fraction of the row's size
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -185,6 +187,7 @@ function startUp() {
         enableButtonActiveOnClick();
         enableOneButtonActive();
         toggleGridLines();
+        
     });
     createGrid(gridSize);
 }

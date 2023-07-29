@@ -57,7 +57,7 @@ function changeBoxColor(e) {
         case "rainbow-button":
             e.target.style.backgroundColor = getRandomColor();
             break;
-        case "erase-button":
+        case "eraser-button":
             e.target.style.backgroundColor = "white";
             break;
         default:
